@@ -35,7 +35,7 @@ class Zone
 
     public function contains(Point $point) : bool
     {
-        return $this->polygon->pointInPolygon($point);
+        return $this->polygon->pointInPolygon($point->getGeoPoint());
     }
 
     public function toArray()
