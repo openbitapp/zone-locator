@@ -1,6 +1,6 @@
 <?php
 
-namespace Bitapp\ZoneLocator\Utility;
+namespace Bitapp\ZoneLocatorUtility;
 
 use Bitapp\ZoneLocator\Zone;
 use proj4php\Point;
