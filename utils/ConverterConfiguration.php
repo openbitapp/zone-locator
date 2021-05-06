@@ -14,7 +14,7 @@ class ConverterConfiguration
     public function __construct(array $data)
     {
         $this->path = $data['path'];
-        $this->proj = $data['proj'];
+        $this->projection = $data['projection'];
         $this->zoneCode = $data['zoneCode'];
         $this->zoneName = $data['zoneName'];
         $this->agency = $data['agency'];
