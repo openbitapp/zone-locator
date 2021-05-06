@@ -10,10 +10,8 @@
     ],
     "require": {
         "php" : "^7.2|^8.0",
-        "phayes/geophp": "^1.2"
-    },
-    "require-dev": {
         "gasparesganga/php-shapefile": "^3.4",
+        "phayes/geophp": "^1.2",
         "proj4php/proj4php": "^2.0"
     },
     "autoload": {
