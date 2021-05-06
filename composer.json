@@ -1,0 +1,33 @@
+{
+    "name": "bitapp/zone-locator",
+    "description": "STIMER Zone Locator",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrea Martini",
+            "email": "andrea.martini@bitapp.it"
+        }
+    ],
+    "require": {
+        "php" : "^7.2|^8.0",
+        "phayes/geophp": "^1.2"
+    },
+    "require-dev": {
+        "gasparesganga/php-shapefile": "^3.4",
+        "proj4php/proj4php": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bitapp\\ZoneLocator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bitapp\\ZoneLocator\\Utility\\": "utils"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable"
+}
