@@ -60,7 +60,7 @@ class Zone
         return null;
     }
 
-    public function loadFromFile(string $path) : array
+    public static function loadFromFile(string $path) : array
     {
         $zonesArray = json_decode(file_get_contents($path), true);
 
