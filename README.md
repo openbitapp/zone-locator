@@ -3,5 +3,5 @@
 ## Install
 
 ```bash
-composer require bitapp/zone-locator
+composer require openbitapp/zone-locator
 ```
