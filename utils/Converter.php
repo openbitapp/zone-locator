@@ -42,7 +42,7 @@ class Converter
                     $pointSrc = new Point($point['x'], $point['y'], $projSrc);
                     $pointDest = $proj4->transform($projWGS84, $pointSrc);
             
-                    $point = $pointDest->toArray();
+                    $points[] = $pointDest->toArray();
                 }
         
                 $zones[] = new Zone([
