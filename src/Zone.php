@@ -8,6 +8,7 @@ class Zone
 {
     public $code;
     public $name;
+    public $type;
     public $agency;
     public $basin;
     public $points;
@@ -17,6 +18,7 @@ class Zone
     {
         $this->code = $data['code'];
         $this->name = $data['name'];
+        $this->type = $data['type'] ?? null;
         $this->agency = $data['agency'] ?? null;
         $this->basin = $data['basin'] ?? null;
 
@@ -43,6 +45,7 @@ class Zone
         return [
             'code' => $this->code,
             'name' => $this->name,
+            'type' => $this->type,
             'agency' => $this->agency,
             'basin' => $this->basin,
             'points' => $this->points,

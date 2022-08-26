@@ -38,16 +38,48 @@ class Converter
         
                 $points = [];
             
-                foreach ($geometry->getArray()['points'] as $point) {
-                    $pointSrc = new Point($point['x'], $point['y'], $projSrc);
-                    $pointDest = $proj4->transform($projWGS84, $pointSrc);
-            
-                    $points[] = $pointDest->toArray();
+                $arrayGeometry = $geometry->getArray();
+
+                if (!empty($arrayGeometry['rings'])) {
+                    $arrayGeometry['numparts'] = 1;
+                    $arrayGeometry['parts'] = [
+                        [
+                            'numrings' => $arrayGeometry['numrings'],
+                            'rings' => $arrayGeometry['rings'],
+                        ],
+                    ];
+                }
+
+                if (!empty($arrayGeometry['points'])) {
+                    $arrayGeometry['numparts'] = 1;
+                    $arrayGeometry['parts'] = [
+                        [
+                            'numrings' => 1,
+                            'rings' => [
+                                [
+                                    'numpoints' => $arrayGeometry['numpoints'],
+                                    'points' => $arrayGeometry['points'],
+                                ]
+                            ],
+                        ],
+                    ];
+                }
+
+                foreach ($arrayGeometry['parts'] as $part) {
+                    foreach ($part['rings'] as $ring) {
+                        foreach ($ring['points'] as $point) {
+                            $pointSrc = new Point($point['x'], $point['y'], $projSrc);
+                            $pointDest = $proj4->transform($projWGS84, $pointSrc);
+
+                            $points[] = $pointDest->toArray();
+                        }
+                    }
                 }
         
                 $zones[] = new Zone([
                     'code' => $geometry->getData($config->zoneCode),
                     'name' => $geometry->getData($config->zoneName),
+                    'type' => $geometry->getData($config->zoneType),
                     'agency' => $config->agency,
                     'basin' => $config->basin,
                     'points' => $points,

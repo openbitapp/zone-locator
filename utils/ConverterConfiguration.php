@@ -8,6 +8,7 @@ class ConverterConfiguration
     public $projection;
     public $zoneCode;
     public $zoneName;
+    public $zoneType;
     public $agency;
     public $basin;
 
@@ -17,8 +18,9 @@ class ConverterConfiguration
         $this->projection = $data['projection'];
         $this->zoneCode = $data['zoneCode'];
         $this->zoneName = $data['zoneName'];
+        $this->zoneType = $data['zoneType'] ?? null;
         $this->agency = $data['agency'];
-        $this->basin = $data['basin'];
+        $this->basin = $data['basin'] ?? null;
     }
 
 }
